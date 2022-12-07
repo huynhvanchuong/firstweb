@@ -1,0 +1,623 @@
+/*Màn hình chính*/
+#Screen_1{
+    position: absolute; 
+    left: 72px; top: 74px; 
+    width: 1473px; height: 1400px;
+    background-color: rgb(255, 255, 255); 
+}
+/*//////////////Hiển thị dữ liệu bảng 1 - Start/////////////////*/
+#div_Table_01 {
+    position: absolute; 
+    left: 150px; top: 450px; 
+    width: 1050px; height: 380px;
+    overflow-y: scroll;
+}
+/*Table*/
+#table_01 {
+    position: absolute;  
+    width: 100%;
+    
+}
+#table_01 tr{
+    cursor: pointer;
+}
+#table_01 tr:hover{background-color: rgb(215, 215, 215);}
+#table_01   { overflow: auto; }
+#table_01 thead th { position: sticky; top: 0;  }
+/* Just common table stuff. Really. */
+#table_01  { 
+    border-collapse: collapse; 
+    width: 100%; 
+
+}
+
+#table_01 th, td { 
+    padding: 10px 1px;
+    text-align: center;
+    border: 1px solid #333;
+    border-collapse: collapse; 
+ }
+#table_01 th     { background:rgb(221, 221, 221); }
+/*//////////////Hiển thị dữ liệu bảng 1 - end/////////////////*/
+
+/*//////////////Hiển thị dữ liệu bảng 2 - Start/////////////////*/
+#div_Table_02 {
+    position: absolute; 
+    left: 170px; top: 990px; 
+    width: 1000px; height: 380px;
+    overflow-y: scroll;
+}
+/*Table*/
+#table_02 {
+    position: absolute;  
+    width:100%;
+
+}
+#table_02 tr{
+    cursor: pointer;
+}
+#table_02 tr:hover{background-color: rgb(205, 205, 205);}
+#table_02   { overflow: auto; }
+#table_02 thead th { position: sticky; top: 0;  }
+/* Just common table stuff. Really. */
+#table_02  { border-collapse: collapse; width: 100%; }
+#table_02 th, td {
+    padding: 10px 1px;
+    text-align: center;
+    border: 1px solid #333;
+    border-collapse: collapse;  
+    }
+#table_02 th     { background:#eee; }
+/*//////////////Hiển thị dữ liệu bảng 2 - end/////////////////////////////////////////*/
+/*///////////////////////////////////////////////////// LABEL //////////////////////////////
+/*TIÊU ĐỀ
+#lb_GSTSDN {
+    color: rgb(215, 0, 0);   
+    font-size: 30px; 
+    font-weight: bold;
+    position: absolute; 
+    left: 345px; top: 15px;
+}*/
+#lb_dd {
+    color: rgb(0, 0, 0);   
+    font-size: 17px;  
+    font-weight: bold;
+    position: absolute; 
+    left: 90px; top: 70px;
+}
+#lb_da {
+    color:  rgb(0, 0, 0);     
+    font-size: 17px; 
+    font-weight: bold;
+    position: absolute; 
+    left: 350px; top: 70px;
+}
+#lb_cs {
+    color:  rgb(0, 0, 0);    
+    font-size: 17px;  
+    font-weight: bold;
+    position: absolute; 
+    left: 600px; top: 70px;
+}
+#lb_sh {
+    color:  rgb(0, 0, 0);    
+    font-size: 17px; 
+    font-weight: bold;
+    position: absolute; 
+    left: 900px; top: 70px;
+}
+#lb_tscb {
+    color: rgb(0, 0, 0);   
+    font-size: 20px; 
+    font-weight: bold;
+    position: absolute; 
+    left: 550px; top: 20px;
+}
+#lb_bc1 {
+    color:  rgb(0, 0, 0);     
+    font-size: 20px; 
+    font-weight: bold;
+    position: absolute; 
+    left: 510px; top: 350px;
+}
+#lb_bc2 {
+    color: rgb(0, 0, 0);   
+    font-size: 20px; 
+    font-weight: bold;
+    position: absolute; 
+    left: 550px; top: 900px;
+}
+/*//////////////TRƯỜNG TÌM KIẾM DỮ LIỆU 1//////////////////////////////////////////////////*/
+/*Lable tìm kiếm từ*/
+#lb_Search_Start {
+    color: rgb(0, 0, 0);   
+    font-size: 14px; 
+    font-weight: bold;
+    position: absolute; 
+    left: 145px; top: 410px;
+}
+/*Chọn ngày tháng bắt đầu*/
+#dtpk_Search_Start {
+    text-align: left; 
+    position: absolute; 
+    left: 175px; top: 410px; 
+    cursor: pointer;
+}
+ 
+/*Lable tìm kiếm đến*/
+#lb_Search_End {
+    color: rgb(0, 0, 0);  
+    font-size: 14px; 
+    font-weight: bold;
+    position: absolute; 
+    left: 375px; top: 410px;
+}
+/*Chọn ngày tháng kết thúc*/
+#dtpk_Search_End {
+    text-align: left; 
+    position: absolute; 
+    left: 415px; top: 410px; 
+    cursor: pointer;
+}
+/*Nút tìm kiếm*/
+#btt_Search {
+    border: none; 
+    border-radius: 20px;
+    background-color: rgb(31, 131, 231); 
+    color: rgb(255, 255, 255);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 105px; height: 30px; 
+    left: 625px; top:405px;
+}
+/*Nút Xuaast Excel*/
+#btt_Excel {
+    border-radius: 20px;
+    border: none; 
+    background-color: rgb(14, 199, 153); 
+    color: rgb(255, 255, 255);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 105px; height: 30px; 
+    left:  735px; top: 405px;
+}
+#btt_Search:hover,
+#btt_Search2:hover,
+#btt_Excel:hover,
+#btt_Excel2:hover {
+    opacity: 0.8;
+}
+/*//////////////TRƯỜNG TÌM KIẾM DỮ LIỆU1 - END/////////////////*/
+/*//////////////TRƯỜNG TÌM KIẾM DỮ LIỆU 2/////////////////*/
+/*Lable tìm kiếm từ*/
+#lb_Search_Start2 {
+    color: rgb(0, 0, 0);   
+    font-size: 14px; 
+    font-weight: bold;
+    position: absolute; 
+    left: 165px; top: 955px;
+}
+/*Chọn ngày tháng bắt đầu*/
+#dtpk_Search_Start2 {
+    text-align: left; 
+    position: absolute; 
+    left: 195px; top: 955px;  
+    cursor: pointer;
+}
+ 
+/*Lable tìm kiếm đến*/
+#lb_Search_End2 {
+    color: rgb(0, 0, 0);  
+    font-size: 14px; 
+    font-weight: bold;
+    position: absolute; 
+    left: 395px; top: 955px;
+}
+/*Chọn ngày tháng kết thúc*/
+#dtpk_Search_End2 {
+    text-align: left; 
+    position: absolute; 
+    left: 435px; top: 955px; 
+    cursor: pointer;
+}
+/*Nút tìm kiếm*/
+#btt_Search2 {
+    border-radius: 20px;
+    border: none; 
+    background-color: rgb(31, 131, 231); 
+    color: rgb(255, 255, 255);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 105px; height: 30px; 
+    left: 645px; top: 950px;
+}
+/*Nút Xuaast Excel2*/
+#btt_Excel2 {
+    border-radius: 20px;
+    border: none; 
+    background-color: rgb(14, 199, 153); 
+    color: rgb(255, 255, 255);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 105px; height: 30px; 
+    left: 755px; top: 950px;
+}
+/*//////////////TRƯỜNG TÌM KIẾM DỮ LIỆU - END/////////////////*/
+/*/////////////////// Ô HIỂN THỊ DỮ LIỆU TỪ PLC ///////////////*/
+/*//////////////////////////*DÒNG ///////////////////////*/   
+#IA {
+    border: none; 
+    background-color: rgb(240, 240, 240);         /* DONG_IA DONG_IB DONG_IC DONG_IAvg   IA IB IC IAvg  */
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 40px; height: 22px; 
+    left: 115px; top: 100px;
+}
+#DONG_IA {
+    text-align: left; 
+    position: absolute; 
+    left: 90px; top: 100px; 
+}
+/*DÒNG */
+#IB {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 40px; height: 22px; 
+    left: 115px; top: 150px;
+}
+#DONG_IB {
+    text-align: left; 
+    position: absolute; 
+    left: 90px; top: 150px; 
+}
+/*DÒNG */
+#IC {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 40px; height: 22px; 
+    left: 115px; top: 200px;
+}
+#DONG_IC {
+    text-align: left; 
+    position: absolute; 
+    left: 90px; top: 200px; 
+}
+/*DÒNG */
+#IAvg {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 40px; height: 22px; 
+    left: 128px; top: 250px;
+}
+#DONG_IAvg {
+    text-align: left; 
+    position: absolute; 
+    left: 90px; top: 250px; 
+}
+/*/////////////////////////*ĐIỆN ÁP//////////////////////////////// */
+#VAB {
+    border: none; 
+    background-color: rgb(240, 240, 240);         /* <!-- VON_AB VON_BC VON_CA VON_Avg  VAB VBC VCA VAvg  -->  */
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px;  
+    left: 390px; top: 100px;
+}
+#VON_AB {
+    text-align: left; 
+    position: absolute; 
+    left: 350px; top: 100px; 
+}
+/*DÒNG */
+#VBC {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px;  
+    left: 390px; top: 150px;
+}
+#VON_BC {
+    text-align: left; 
+    position: absolute; 
+    left: 350px; top: 150px; 
+}
+/*DÒNG */
+#VCA {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px;  
+    left: 390px; top: 200px;
+}
+#VON_CA {
+    text-align: left; 
+    position: absolute; 
+    left: 350px; top: 200px; 
+}
+/*DÒNG */
+#VAvg {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 47px; height: 22px;  
+    left: 393px; top: 250px;
+}
+#VON_Avg {
+    text-align: left; 
+    position: absolute; 
+    left: 350px; top: 250px; 
+}
+/*/////////////////////////* CÔNG SUẤT  /////////////////// */ /*<!-- CS_P   CS_Q   CS_S  COS_PHI  TAN_SO     P   Q   S   COSPHI    F-->*/
+#P {
+    border: none; 
+    background-color: rgb(240, 240, 240);         
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px; 
+    left: 700px; top: 100px;
+}
+#CS_P {
+    text-align: left; 
+    position: absolute; 
+    left: 600px; top: 100px; 
+}
+/*Q */
+#Q {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px; 
+    left: 730px; top: 140px;
+}
+#CS_Q {
+    text-align: left; 
+    position: absolute; 
+    left: 600px; top: 140px; 
+}
+/*S */
+#S {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px; 
+    left: 700px; top: 180px;
+}
+#CS_S {
+    text-align: left; 
+    position: absolute; 
+    left: 600px; top: 180px; 
+}
+/*COSPHI*/
+#COSPHI {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px; 
+    left: 750px; top: 220px;
+}
+#COS_PHI {
+    text-align: left; 
+    position: absolute; 
+    left: 600px; top: 220px; 
+}
+/*TẦN SỐ*/
+#F {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px; 
+    left: 670px; top: 260px;
+}
+#TAN_SO {
+    text-align: left; 
+    position: absolute; 
+    left: 600px; top: 260px; 
+}
+/*/////////////////////////*THDI THDU ///////////////////////  <!-- THD_IA  THD_IB  THD_IC      --><!-- THD_UAB  THD_UBC  THD_UCA      -->*/
+#THDIA {
+    border: none; 
+    background-color: rgb(240, 240, 240);         
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px; 
+    left: 960px; top: 100px;
+}
+#THD_IA {
+    text-align: left; 
+    position: absolute; 
+    left: 900px; top: 100px; 
+}
+/*DÒNG */
+#THDIB {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px; 
+    left: 960px; top: 150px;
+}
+#THD_IB {
+    text-align: left; 
+    position: absolute; 
+    left: 900px; top: 150px; 
+}
+/*DÒNG */
+#THDIC {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px; 
+    left: 960px; top: 200px;
+}
+#THD_IC {
+    text-align: left; 
+    position: absolute; 
+    left: 900px; top: 200px; 
+}
+/*DÒNG */
+#THDUAB {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px; 
+    left: 1220px; top: 100px;
+}
+#THD_UAB {
+    text-align: left; 
+    position: absolute; 
+    left: 1100px; top: 100px; 
+}
+/*DÒNG */
+#THDUBC {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px; 
+    left: 1220px; top: 150px;
+}
+#THD_UBC {
+    text-align: left; 
+    position: absolute; 
+    left: 1100px; top: 150px; 
+}
+/*DÒNG */
+#THDUCA {
+    border: none; 
+    background-color: rgb(240, 240, 240); 
+    color: rgb(0, 0, 0);  
+    text-align: center; 
+    display: inline-block;
+    font-size: 11px; 
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    width: 50px; height: 22px; 
+    left: 1220px; top: 200px;
+}
+#THD_UCA {
+    text-align: left; 
+    position: absolute; 
+    left: 1100px;top: 200px; 
+}

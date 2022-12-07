@@ -1,0 +1,211 @@
+<html>
+<!-- Phần Header của Website -->
+
+<head>
+    <!-- ////////////// GỌI CÁC CSS //////////////  -->
+    <link rel="stylesheet" href= "CSS/slidebar.css">
+    <link rel="stylesheet" href= "CSS/screen_1.css">
+    <link rel="stylesheet" href= "CSS/screen_2.css">
+    <link rel="stylesheet" href= "CSS/screen_3.css">
+    <link rel="icon" href="https://khoadiendut.edu.vn/wp-content/uploads/2020/09/Logo-khoa-dien_No-Background_small_size-2-500x458-1.png" type="image/x-icon" />
+    <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG //////////////  -->
+    <title>Hệ thống giám sát số hóa</title>
+    <script src = "js/jquery-3.6.1.min.js"></script>
+    <script src = "js/FC1_Common.js"></script>
+    <script src = "js/FC2_screen_main.js"></script>
+    <script src = "js/FC3_Excel_Export.js"></script>
+    <script src = "socket.io/socket.io.js"></script>
+    <script src = "js/FileSaver.js"></script>
+    <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+    <script>
+       var socket = io() // IP tĩnh (hoặc IP động, hoặc localhost) npm install --save-dev // npm install --save-dev nodemon
+    </script>
+</head>
+ <!-- Phần thân của website -->
+ <body>
+    <!-- ////////////// Code cho slidebar////////////// -->
+        <div id = "slidebar">
+            <header>  
+                <input type="checkbox">
+                <div class="menu-icon">
+                    <div class="menu-line"></div>
+                    <h1> </h1>
+                    <h1>Menu</h1>
+                    <h2> </h2>
+                    <h2>GIÁM SÁT SỐ HÓA NHÀ MÁY SỢI</h2>
+                </div>
+                <div class="menu-item">
+                    <!--Nút chọn màn hình chính-->
+                    <button id="btt_Screen_1" onclick=" 
+                        fn_ScreenChange('Screen_1','Screen_2','Screen_3');
+                        fn_Table01_SQL_Show();
+                        fn_Table02_SQL_Show();
+                    ">MÁY 1</button>
+                    <!--Nút chọn màn hình 1-->
+                    <button id="btt_Screen_2" onclick=" 
+                        fn_ScreenChange('Screen_2','Screen_1','Screen_3');
+                    ">MÁY 2</button>
+                    <!--Nút chọn màn hình 2-->
+                    <button id="btt_Screen_3" onclick=" 
+                    fn_ScreenChange('Screen_3','Screen_2','Screen_1');
+                    ">MÁY 3</button>   
+                </div>
+            </header>
+        </div>
+<!-- ///////////////////////////////////////Code cho màn hình chính////////////////////////////////////// -->
+        <div id = "Screen_1">
+        <!--////////////////////////////////////// bang 1 ////////////////////////////////////////-->
+        <!--Table display-->
+            <div id = "div_Table_01">
+                <table id="table_01" >
+                    <thead>
+                    <tr>
+                        <th>Thời gian</th>
+                        <th>Dòng điện A</th>
+                        <th>Điện áp V</th>
+                        <th>Công suất P(kW)</th>
+                        <th>Tần số Hz</th>
+                        <th>Cosphi</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!--Date time piker-->
+            <label id="lb_Search_Start">Từ:</label>
+            <input id="dtpk_Search_Start" type="datetime-local">
+            <label id="lb_Search_End">Đến:</label>
+            <input id="dtpk_Search_End" type="datetime-local">
+            <!--Nút tìm kiếm-->
+            <button id="btt_Search" class="btn" onclick="fn_SQL_By_Time();
+            "></i> TÌM KIẾM</button>
+            <!--Nút Xuất Excel-->
+            <button id="btt_Excel" class="btn" onclick="fn_excel();
+            "></i> TẢI BÁO CÁO</button> <!-- Phần thân của website -->
+            
+        <!--////////////////////////////////////// bang 2 ////////////////////////////////////////-->
+        <!--Table display-->
+            <div id = "div_Table_02">
+                <table id="table_02" >
+                    <thead>
+                    <tr>
+                        <th>Thời gian ca </th>
+                        <th>Thời gian tải chạy (Phút)</th>
+                        <th>Thời gian tải dừng (Phút)</th>
+                        <th>Hiệu suất (%)</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!--Date time piker-->
+            <label id="lb_Search_Start2">Từ:</label>
+            <input id="dtpk_Search_Start2" type="datetime-local">
+            <label id="lb_Search_End2">Đến:</label>
+            <input id="dtpk_Search_End2" type="datetime-local">
+            <!--Nút tìm kiếm-->
+            <button id="btt_Search2" class="btn" onclick="fn_SQL_By_Time2();
+            "></i> TÌM KIẾM</button>
+            <!--Nút Xuất Excel2-->
+            <button id="btt_Excel2" class="btn" onclick="fn_excel2();
+            "></i> TẢI BÁO CÁO</button>
+<!-- /////////////////////////////////////////////////////////////// TAG-LABEL /////////////////////////////-->
+            <!--LABEL-->    
+                <label id="lb_GSTSDN"></label>
+                <label id="lb_dd">DÒNG ĐIỆN (A)</label>
+                <label id="lb_da">ĐIỆN ÁP (V)</label>
+                <label id="lb_cs">CÔNG SUẤT (kW)</label>
+                <label id="lb_sh">ĐỘ MÉO HÀI (%)</label>
+                <label id="lb_tscb">CÁC THAM SỐ ĐIỆN CƠ BẢN</label>
+                <label id="lb_bc1">BÁO CÁO CÁC THAM SỐ ĐIỆN CƠ BẢN</label>
+                <label id="lb_bc2">BÁO CÁO VẬN HÀNH MÁY</label>
+                <!--/////////////////// HIỂN THỊ THAM SỐ ĐIỆN //////////////////////-->
+                <!-- DÒNG ĐIỆN -->
+                <label id="DONG_IA">IA:</label>
+                <input id="IA" disabled="disabled" type="text" />                
+                <script>fn_IOFieldDataShow("Current_A", "IA", 2)</script>      <!-- DONG_IA DONG_IB DONG_IC DONG_IAvg   IA IB IC IAvg  -->
+                <label id="DONG_IB">IB:</label>                          
+                <input id="IB" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Current_B", "IB", 2)</script>  
+                <label id="DONG_IC">IC:</label>
+                <input id="IC" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Current_C", "IC", 2)</script>  
+                <label id="DONG_IAvg">IAvg:</label>
+                <input id="IAvg" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Current_Avg", "IAvg", 2)</script>        
+                <!-- ĐIỆN ÁP -->
+                <label id="VON_AB">UAB:</label>
+                <input id="VAB" disabled="disabled" type="text" />                      
+                <script>fn_IOFieldDataShow("Voltage_AB", "VAB", 2)</script>    <!-- VON_AB VON_BC VON_CA VON_Avg  VAB VBC VCA VAvg  -->
+                <label id="VON_BC">UBC:</label>
+                <input id="VBC" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Voltage_BC", "VBC", 2)</script>
+                <label id="VON_CA">UCA:</label>
+                <input id="VCA" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Voltage_CA", "VCA", 2)</script>
+                <label id="VON_Avg">UAvg:</label>
+                <input id="VAvg" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Voltage_LL_Avg", "VAvg", 2)</script>
+                <!--NĂNG LƯƠNG -->
+                <label id="CS_P">TÁC DỤNG P:</label>
+                <input id="P" disabled="disabled" type="text" />                      <!--   --> 
+                <script>fn_IOFieldDataShow("Active_Power_Total", "P", 2)</script>   <!-- CS_P   CS_Q   CS_S  COS_PHI  TAN_SO     P   Q   S   COSPHI    F--> 
+                <label id="CS_Q">PHẢN KHÁNG Q:</label>
+                <input id="Q" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Reactive_Power_Total", "Q", 2)</script>
+                <label id="CS_S">BIỂU KIẾN S:</label>
+                <input id="S" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Apparent_Power_Total", "S", 2)</script>
+                <label id="COS_PHI">HỆ SỐ CÔNG SUẤT:</label>
+                <input id="COSPHI" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Power_Factor_Total", "COSPHI", 2)</script>
+                <label id="TAN_SO">TẦN SỐ:</label>
+                <input id="F" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Frequency", "F", 2)</script>
+                <!-- THD I-->
+                <label id="THD_IA">THD IA:</label>
+                <input id="THDIA" disabled="disabled" type="text" />               
+                <script>fn_IOFieldDataShow("THD_Current_A", "THDIA", 2)</script>   <!-- THD_IA  THD_IB  THD_IC      -->
+                <label id="THD_IB">THD IB:</label>
+                <input id="THDIB" disabled="disabled" type="text" />   
+                <script>fn_IOFieldDataShow("THD_Current_B", "THDIB", 2)</script>
+                <label id="THD_IC">THD IC:</label>
+                <input id="THDIC" disabled="disabled" type="text" />   
+                <script>fn_IOFieldDataShow("THD_Current_C", "THDIC", 2)</script>
+                <!-- THD U-->
+                <label id="THD_UAB">THD Voltage AB:</label>
+                <input id="THDUAB" disabled="disabled" type="text" />   
+                <script>fn_IOFieldDataShow("THD_Voltage_AB", "THDUAB", 2)</script>      <!-- THD_UAB  THD_UBC  THD_UCA      -->
+                <label id="THD_UBC">THD Voltage BC:</label>
+                <input id="THDUBC" disabled="disabled" type="text" />   
+                <script>fn_IOFieldDataShow("THD_Voltage_BC", "THDUBC", 2)</script>
+                <label id="THD_UCA">THD Voltage CA:</label>
+                <input id="THDUCA" disabled="disabled" type="text" />   
+                <script>fn_IOFieldDataShow("THD_Voltage_CA", "THDUCA", 2)</script>
+                
+                <!-- THỜI GIAN VẬN HÀNH -->
+                <!-- <label id="TG">Thời gian vận hành:</label>
+                <input id="T" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Active_Load_Timer_Minute", "T", 0)</script> -->
+                <!-- THỜI GIAN DỪNG -->
+                <!-- <label id="TGD">Thời gian dừng:</label>
+                <input id="D" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Stop_Load_Timer", "D", 0)</script> -->
+                <!-- HIỆU SUẤT LÀM VIỆC -->
+                <!-- <label id="HS">Hiệu suất:</label>
+                <input id="H" disabled="disabled" type="text" />
+                <script>fn_IOFieldDataShow("Hieu_suat_lam_viec", "H", 2)</script> -->
+        </div> 
+    <!-- //////////////Code cho màn hình 1////////////// -->
+    <div id='Screen_2'><!-- Plotly chart will be drawn inside this DIV -->
+        <!--REALTIME TREND--> 
+        <label id="lb_GSTSDN"></label>
+    </div>
+    <!-- //////////////Code cho màn hình 2////////////// -->
+        <div id = "Screen_3">
+            <label id="lb_GSTSDN3">ĐỒ ÁN TỐT NGHIỆP</label>
+        </div> 
+    </body>
+</html>
+<!-- .ejs là thư viện của javascript hỗ trợ việc viết ngôn ngữ html có nhúng thêm ngôn ngữ JS vào. 
+     EJS về cơ bản vẫn là code HTML và được nhúng thêm code JavaScript bằng các thẻ đánh dấu khu vực dành cho code JavaScript -->
+    
